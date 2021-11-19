@@ -31,5 +31,5 @@ require('Sacr3d.Goodies')
 require('Sacr3d.Lsp')
 --> Loads user contrib files (work in progress)
 -- require('Goodies.modules')
-vim.cmd('source ~/.config/Sacr3d-nvim/lua/Sacr3d/Goodies/wiki.vim')
+vim.cmd('source ~/.config/Sacr3dNvim/lua/Sacr3d/Goodies/wiki.vim')
 

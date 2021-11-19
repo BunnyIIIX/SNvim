@@ -23,7 +23,8 @@ local nvim_lsp = require('lspconfig')
 -- local coq = require('coq')
 
 -- Set the path to the sumneko installation (ABSOLUTE PATH)
-local sumneko_install_path = fn.stdpath('data') .. '/lspservers/lua-language-server'
+local sumneko_install_path = fn.stdpath('data') .. '/lsp_servers/sumneko_lua/extension/server'
+-- local sumneko_install_path = fn.stdpath('data') .. '/lspservers/lua-language-server'
 local sumneko_binary = sumneko_install_path .. '/bin/Android/lua-language-server'
 
 local runtime_path = vim.split(package.path, ';')

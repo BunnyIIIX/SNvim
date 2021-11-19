@@ -1,7 +1,7 @@
 "'=>> Settings
 set linebreak
 set conceallevel=3
-let g:vsnip_snippet_dir = expand('~/.config/nvim/snippets/')
+let g:vsnip_snippet_dir = expand('~/.config/Sacr3dNvim/snippets/')
 
 ""=>> Setup cmp setup buffer configuration - 👻 text off for markdown
 lua << EOF
