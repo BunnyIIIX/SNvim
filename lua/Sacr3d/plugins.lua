@@ -15,7 +15,10 @@ require('packer').startup({
 
 		--{{{ =>> Lsp/Autocompletion/Snippets
 		-- Lsp Plugins
-		use('neovim/nvim-lspconfig')
+		use({
+			'neovim/nvim-lspconfig',
+			'williamboman/nvim-lsp-installer',
+		})
 		use('onsails/lspkind-nvim')
 
 		--->> Coq-Nvim
@@ -38,6 +41,10 @@ require('packer').startup({
 				{ 'hrsh7th/cmp-nvim-lsp' },
 				{ 'hrsh7th/cmp-path' },
 				{ 'hrsh7th/cmp-buffer' },
+				-- {
+				-- 	'tzachar/cmp-tabnine',
+				-- 	run = './install.sh',
+				-- },
 			},
 		})
 
@@ -131,12 +138,12 @@ require('packer').startup({
 
 		--->> Mkdnflow.nvim
 		-- use({
-			-- 'jakewvincent/mkdnflow.nvim',
-			-- config = function()
-				-- require('mkdnflow').setup({
-				-- 	-- Config goes here; leave blank for defaults
-				-- })
-			-- end,
+		-- 'jakewvincent/mkdnflow.nvim',
+		-- config = function()
+		-- require('mkdnflow').setup({
+		-- 	-- Config goes here; leave blank for defaults
+		-- })
+		-- end,
 		-- })
 
 		--->> Smooth Scrolling
@@ -218,7 +225,7 @@ require('packer').startup({
 			.. '/lua/Sacr3d/packer_compiled.lua',
 	},
 	function()
-		require('packer_compiled')
+		require('Sacr3d.packer_compiled')
 	end,
 })
 -- }}}

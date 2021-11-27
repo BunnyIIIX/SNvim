@@ -20,6 +20,14 @@ local feedkey = function(key, mode)
 	)
 end
 
+local source_mapping = {
+	buffer = '[Buffer]',
+	nvim_lsp = '[LSP]',
+	nvim_lua = '[Lua]',
+	cmp_tabnine = '[TN]',
+	path = '[Path]',
+}
+
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -88,14 +96,15 @@ cmp.setup({
 	sources = {
 		-- 'crates' is lazy loaded
 		{ name = 'nvim_lsp', priority = 1 },
-		{ name = 'vsnip' },
-		{ name = 'treesitter' },
 		{ name = 'path' },
+		{ name = 'vsnip' },
+		-- { name = 'treesitter' },
+		-- { name = 'cmp_tabnine' },
 		-- { name = 'orgmode ' },
 		-- { name = 'neorg' },
 		{
 			name = 'buffer',
-			opts = {
+			options = {
 				get_bufnrs = function()
 					return vim.api.nvim_list_bufs()
 				end,
@@ -104,24 +113,41 @@ cmp.setup({
 		-- { name = 'spell' },
 	},
 	formatting = {
+		-- 	format = function(entry, vim_item)
+		-- 		vim_item.kind = string.format(
+		-- 			'%s %s',
+		-- 			lspkind.presets.default[vim_item.kind],
+		-- 			vim_item.kind
+		-- 		)
+		-- 		vim_item.menu = ({
+		-- 			nvim_lsp = 'ﲳ',
+		-- 			nvim_lua = '',
+		-- 			treesitter = '',
+		-- 			path = 'ﱮ',
+		-- 			buffer = '﬘',
+		-- 			zsh = '',
+		-- 			vsnip = '',
+		-- 			spell = '暈',
+		-- 		})[entry.source.name]
+		-- 		return vim_item
+		-- 	end,
+		-- },
 		format = function(entry, vim_item)
-			vim_item.kind = string.format(
-				'%s %s',
-				lspkind.presets.default[vim_item.kind],
-				vim_item.kind
-			)
-			vim_item.menu = ({
-				nvim_lsp = 'ﲳ',
-				nvim_lua = '',
-				treesitter = '',
-				path = 'ﱮ',
-				buffer = '﬘',
-				zsh = '',
-				vsnip = '',
-				spell = '暈',
-			})[entry.source.name]
+			vim_item.kind = lspkind.presets.default[vim_item.kind]
+			local menu = source_mapping[entry.source.name]
+			if entry.source.name == 'cmp_tabnine' then
+				if
+					entry.completion_item.data ~= nil
+					and entry.completion_item.data.detail ~= nil
+				then
+					menu = entry.completion_item.data.detail
+						.. ' '
+						.. menu
+				end
+				vim_item.kind = ''
+			end
+			vim_item.menu = menu
 			return vim_item
 		end,
 	},
 })
-

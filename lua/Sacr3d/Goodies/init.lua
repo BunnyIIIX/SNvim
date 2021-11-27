@@ -6,6 +6,7 @@ return {
 	--=>> Lsp & Completions <<=-
 	require('Sacr3d.Goodies.lspkind'),
 	require('Sacr3d.Goodies.cmp'),
+	-- require('Sacr3d.Goodies.Tab9'),
 	-- require('Sacr3d.Goodies.ultisnips'),
 
 	--=>> Colors & Syntax <<=--
@@ -14,7 +15,7 @@ return {
 
 	--=>> Explorer <<=--
 	require('Sacr3d.Goodies.nvimtree'),
-	require('Sacr3d.Goodies.telescope'),
+	require('Sacr3d.Goodies.Telescope'),
 
 	--=>> Statusline & Starter <<=--
 	require('Sacr3d.Goodies.lualine'),

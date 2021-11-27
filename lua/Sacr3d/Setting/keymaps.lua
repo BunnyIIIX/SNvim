@@ -101,7 +101,8 @@ map('v', '<S-Tab>', '<gv', { noremap = true, silent = true })
 --=>> BUFFER & WINDOW <<=
 -------------------------
 --{{{ Buffer Manipulation
-map('n', '<leader>q', ':bd<CR>', { noremap = true, silent = true })
+map('n', '<leader>s', ':tabnew sbuffer<CR>', { noremap = true, silent = true })
+map('n', '<leader>q', ':bd!<CR>', { noremap = true, silent = true })
 map('n', '<Tab>', ':bn <CR>', { noremap = true, silent = true })
 map('n', '<M-0>', ':bn <CR>', { noremap = true, silent = true })
 map('n', '<M-9>', ':bp <CR>', { noremap = true, silent = true })
