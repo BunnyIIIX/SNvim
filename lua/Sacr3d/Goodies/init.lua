@@ -15,6 +15,7 @@ return {
 
 	--=>> Explorer <<=--
 	require('Sacr3d.Goodies.nvimtree'),
+	-- require('Sacr3d.Goodies.Telescope-multi'),
 	require('Sacr3d.Goodies.Telescope'),
 
 	--=>> Statusline & Starter <<=--
@@ -30,6 +31,7 @@ return {
 	require('Sacr3d.Goodies.specsnvim'),
 	require('Sacr3d.Goodies.nvimreload'),
 	require('Sacr3d.Goodies.hop'),
+	require('Sacr3d.Goodies.search-box'),
 	-- require('Sacr3d.Goodies.nvimbqf2')
 	-- require('Sacr3d.Goodies.gitsigns'),
 	-- require('Sacr3d.Goodies.vimwiki'),

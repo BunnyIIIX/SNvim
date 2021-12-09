@@ -32,30 +32,30 @@ g.dashboard_custom_section = {
 
 	b = {
 		description = {
-			'						   Recents                          ',
-		},
-		command = 'Telescope oldfiles',
-	},
-
-	c = {
-		description = {
 			'						   Find Word                        ',
 		},
 		command = 'Telescope live_grep',
 	},
 
-	d = {
+	c = {
 		description = {
 			'						   New File                         ',
 		},
 		command = 'DashboardNewFile',
 	},
 
-	e = {
+	d = {
 		description = {
 			'						   Bookmarks                        ',
 		},
 		command = 'Telescope marks',
+	},
+
+	e = {
+		description = {
+			'						   Recents                          ',
+		},
+		command = 'Telescope oldfiles',
 	},
 
 	f = {

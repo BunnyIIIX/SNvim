@@ -1,13 +1,20 @@
 --=>> Bashls <<=-
-local nvim_lsp = require('lspconfig')
+-- local nvim_lsp = require('lspconfig')
+--
+-- nvim_lsp.bashls.setup {
+-- 	cmd = { "bash-language-server", "start" },
+-- 	cmd_env = {
+-- 		GLOB_PATTERN = "*@(.sh|.inc|.bash|.command)",
+-- 	},
+-- 	filetypes = { "sh", "bash", "zsh" },
+-- 	-- root_dir = "~"
+-- }
 
-nvim_lsp.bashls.setup {
-	cmd = { "bash-language-server", "start" },
+return {
+	cmd = { 'bash-language-server', 'start' },
 	cmd_env = {
-		GLOB_PATTERN = "*@(.sh|.inc|.bash|.command)",
+		GLOB_PATTERN = '*@(.sh|.inc|.bash|.command)',
 	},
-	filetypes = { "sh", "bash", "zsh" },
+	filetypes = { 'sh', 'bash', 'zsh' },
 	-- root_dir = "~"
 }
-
-

@@ -25,7 +25,7 @@ local M = {}
 
 --=>> GENERAL <<=--
 -----------------------
---{{{ Fun Stuff
+--{{{ Fun Stuff.
 --> Leader-key
 vim.g.mapleader = ' ' -- Map leader key to space
 
@@ -33,27 +33,57 @@ vim.g.mapleader = ' ' -- Map leader key to space
 -- map('n', '<C-n>', ':set rnu!<CR>', opt)
 
 --> Folding.
-map('n', '<Leader><Space>', 'za', { noremap = true, silent = true }) -- toggle nvimtree
+map(
+	'n',
+	'<Leader><Space>',
+	'za',
+	{ noremap = true, silent = true }
+) -- toggle nvimtree
 
 --> Join line and keep cursor at center.
 map('n', 'J', "mzJ'z", { noremap = true })
 
 --> Move selected line / block of text in visual mode.
-map('x', '<S-Up>', ":move '<-2<CR>gv-gv", { noremap = true, silent = true })
-map('x', '<S-Down>', ":move '>+1<CR>gv-gv", { noremap = true, silent = true })
+map(
+	'x',
+	'<S-Up>',
+	":move '<-2<CR>gv-gv",
+	{ noremap = true, silent = true }
+)
+map(
+	'x',
+	'<S-Down>',
+	":move '>+1<CR>gv-gv",
+	{ noremap = true, silent = true }
+)
 
 --> Toggle highlight search.
-map('n', '<M-.>', ':set hlsearch!<CR>', { noremap = true, silent = true })
+-- map(
+-- 	'n',
+-- 	'<M-.>',
+-- 	':set hlsearch!<CR>',
+-- 	{ noremap = true, silent = true }
+-- )
 
 --> Save & Reload.
-map('n', '<Leader>#', ':w <CR> | :so %<CR> | :echo "Saved & Reloaded"<CR>', { noremap = true, silent = true })
-map('n', '<Leader>$', ':w <CR> | :Restart<CR> | :echo "Saved & Restart"<CR>', { noremap = true, silent = true })
+map(
+	'n',
+	'<Leader>#',
+	':w <CR> | :so %<CR> | :echo "Saved & Reloaded"<CR>',
+	{ noremap = true, silent = true }
+)
+map(
+	'n',
+	'<Leader>$',
+	':w <CR> | :Restart<CR> | :echo "Saved & Restart"<CR>',
+	{ noremap = true, silent = true }
+)
 
 --}}}
 
 -- =>> YANK & PASTE <<=
 -----------------------
---{{{ Good Stuff
+--{{{ Good Stuff.
 --> Prevent x from overriding what's in the clipboard.
 map('n', 'x', '"_x', { noremap = true, silent = true })
 map('n', 'X', '"_x', { noremap = true, silent = true })
@@ -65,8 +95,8 @@ map('x', 'p', 'pgvy', { noremap = true, silent = true })
 map('v', 'y', 'ygv<esc>', { noremap = true, silent = true })
 
 --> Yank from cursor to the end of the line.
-map('n', 'Y', 'y$', { noremap = true })
-map('i', '<C-y>', '<esc>y$a', { noremap = true })
+-- map('n', 'Y', 'y$', { noremap = true })
+map('i', '<C-y>', '<esc>ly$i', { noremap = true })
 
 --> Clipboard Yanker.
 map('n', '<leader>Y', ':%y+<CR>', opt) -- Copy content of entire buffer to system clipboard
@@ -75,16 +105,45 @@ map('v', '<leader>y', '"+y', opt) -- yank current line into system clipboard
 
 --> Substitute
 -- map('n', '<M-r>', ':call <SID>better_sub()<CR>', { noremap = true})
-map('n', '<M-r>', ':%s/<C-R><C-W>/<C-R>0/gc<CR>', { noremap = true})
+map(
+	'n',
+	'<M-r>',
+	':%s/<C-R><C-W>/<C-R>0/gc<CR>',
+	{ noremap = true }
+)
 
 --> Visual Selection.
 -- map('v', '$', '$h', { noremap = true, silent = true })
 
 --> Move to the last letter on the line
-map('n', '<M-Right>', '$', { noremap = true})
+-- map('n', '<M-Right>', '$', { noremap = true })
 --> Move to the first letter on the line
-map('n', '<M-Left>', '^', { noremap = true})
+-- map('n', '<M-Left>', '^', { noremap = true })
 
+--}}}
+
+-- =>> QUICKFIX <==
+-------------------
+--{{{ Quickfix List.
+map(
+	'n',
+	'<leader>ck',
+	':cexpr []<cr>',
+	{ noremap = true, silent = true }
+)
+map(
+	'n',
+	'<leader>co',
+	':copen <cr>',
+	{ noremap = true, silent = true }
+)
+map(
+	'n',
+	'<leader>cf',
+	':cfdo %s/',
+	{ noremap = true, silent = true }
+)
+-- map('n', '<leader>cc', ':cclose <cr>', { noremap = true, silent = true })
 --}}}
 
 -- =>> LINES MANIPULATIONS <<=
@@ -100,15 +159,40 @@ map('v', '<S-Tab>', '<gv', { noremap = true, silent = true })
 
 --=>> BUFFER & WINDOW <<=
 -------------------------
---{{{ Buffer Manipulation
-map('n', '<leader>s', ':tabnew sbuffer<CR>', { noremap = true, silent = true })
-map('n', '<leader>q', ':bd!<CR>', { noremap = true, silent = true })
-map('n', '<Tab>', ':bn <CR>', { noremap = true, silent = true })
-map('n', '<M-0>', ':bn <CR>', { noremap = true, silent = true })
-map('n', '<M-9>', ':bp <CR>', { noremap = true, silent = true })
+--{{{ Buffer Manipulation.
+map(
+	'n',
+	'<leader>s',
+	':tabnew sbuffer<CR>',
+	{ noremap = true, silent = true }
+)
+map(
+	'n',
+	'<leader>q',
+	':bd!<CR>',
+	{ noremap = true, silent = true }
+)
+map(
+	'n',
+	'<Tab>',
+	':bn <CR>',
+	{ noremap = true, silent = true }
+)
+map(
+	'n',
+	'<M-0>',
+	':bn <CR>',
+	{ noremap = true, silent = true }
+)
+map(
+	'n',
+	'<M-9>',
+	':bp <CR>',
+	{ noremap = true, silent = true }
+)
 --}}}
 
---{{{ Window Navigation
+--{{{ Window Navigation.
 map('n', '<C-Left>', ':wincmd h<CR>', opt)
 map('n', '<C-Down>', ':wincmd j<CR>', opt)
 map('n', '<C-Up>', ':wincmd k<CR>', opt)
@@ -117,53 +201,110 @@ map('n', '<C-Right>', ':wincmd l<CR>', opt)
 
 --=>> PLUGINS <<=
 -----------------
---{{{ Telescope
-map('n', '<C-t>', ':Telescope find_files hidden=true cwd=$NVIM_HOME<CR>', { noremap = true })
-map('n', '<M-t>', ':Telescope find_files hidden=true<CR>', { noremap = true })
-map('n', '<leader>t', ':Telescope file_browser hidden=true<CR>', { noremap = true })
-map('n', '<leader>g', ':Telescope live_grep<CR>', { noremap = true })
+--{{{ Telescope.
+-- map('n', '<C-t>', ':Telescope find_files cwd=$NVIM_HOME<CR>', { noremap = true, silent = true })
+map(
+	'n',
+	'<C-t>',
+	':Telescope find_files<CR>',
+	{ noremap = true }
+)
+map(
+	'n',
+	'<leader>t',
+	':Telescope file_browser<CR>',
+	{ noremap = true }
+)
+map(
+	'n',
+	'<leader>g',
+	':Telescope live_grep<CR>',
+	{ noremap = true }
+)
+map(
+	'n',
+	'<M-t>',
+	':Telescope git_files<CR>',
+	{ noremap = true }
+)
 -- map('n', '<leader>tg', ':Telescope git_commits<CR>', { noremap = true })
 -- map('n', '<leader>tG', ':Telescope git_branches<CR>', { noremap = true })
 --}}}
 
---{{{ Nvim-Tree
-map('n', '<Leader>f', ':NvimTreeToggle<CR>', { noremap = true, silent = true }) -- toggle nvimtree
-map('n', '<Leader>e', ':NvimTreeFindFile<CR>', { noremap = true, silent = true }) -- toggle nvimtree
+--{{{ Nvim-Tree.
+map(
+	'n',
+	'<Leader>f',
+	':NvimTreeToggle<CR>',
+	{ noremap = true, silent = true }
+) -- toggle nvimtree
+map(
+	'n',
+	'<Leader>e',
+	':NvimTreeFindFile<CR>',
+	{ noremap = true, silent = true }
+) -- toggle nvimtree
 --}}}
 
---{{{ VimWiki
-map('n', '<leader>w', ':1VimwikiIndex<CR>', { noremap = true, silent = true })
-map('n', '2<leader>w', ':2VimwikiIndex<CR>', { noremap = true, silent = true })
-map('n', '<leader><Down>', ':VimwikiNextLink<CR>', { noremap = true, silent = true })
-map('n', '<leader><Up>', ':VimwikiPrevLink<CR>', { noremap = true, silent = true })
+--{{{ VimWiki.
+map(
+	'n',
+	'<leader>w',
+	':1VimwikiIndex<CR>',
+	{ noremap = true, silent = true }
+)
+map(
+	'n',
+	'2<leader>w',
+	':2VimwikiIndex<CR>',
+	{ noremap = true, silent = true }
+)
+map(
+	'n',
+	'<leader><Down>',
+	':VimwikiNextLink<CR>',
+	{ noremap = true, silent = true }
+)
+map(
+	'n',
+	'<leader><Up>',
+	':VimwikiPrevLink<CR>',
+	{ noremap = true, silent = true }
+)
 --}}}
 
---{{{ Hop.nvim
+--{{{ Hop.nvim.
 map('n', '<leader>jj', ':HopWord<CR>', opt)
 map('n', '<leader>jl', ':HopLine<CR>', opt)
 --}}}
 
---{{{ Gitsigns Mappings
-M.gitsigns_mappings = {
-	noremap = true,
-	['n ]c'] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'" },
-	['n [c'] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'" },
+--{{{ Gitsigns Mappings.
+-- M.gitsigns_mappings = {
+-- 	noremap = true,
+-- 	['n ]c'] = {
+-- 		expr = true,
+-- 		"&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'",
+-- 	},
+-- 	['n [c'] = {
+-- 		expr = true,
+-- 		"&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'",
+-- 	},
 
-	['n <leader>gs'] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
-	['v <leader>gs'] = '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
-	['n <leader>gu'] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
-	['n <leader>gr'] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
-	['v <leader>gr'] = '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
-	['n <leader>gR'] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
-	['n <leader>gp'] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
-	['n <leader>gb'] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
-	['n <leader>gS'] = '<cmd>lua require"gitsigns".stage_buffer()<CR>',
-	['n <leader>gU'] = '<cmd>lua require"gitsigns".reset_buffer_index()<CR>',
+-- 	['n <leader>gs'] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
+-- 	['v <leader>gs'] = '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
+-- 	['n <leader>gu'] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
+-- 	['n <leader>gr'] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
+-- 	['v <leader>gr'] = '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
+-- 	['n <leader>gR'] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
+-- 	['n <leader>gp'] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
+-- 	['n <leader>gb'] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
+-- 	['n <leader>gS'] = '<cmd>lua require"gitsigns".stage_buffer()<CR>',
+-- 	['n <leader>gU'] = '<cmd>lua require"gitsigns".reset_buffer_index()<CR>',
 
-	-- Text objects
-	['o ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
-	['x ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
-}
+-- 	-- Text objects
+-- 	['o ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
+-- 	['x ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
+-- }
 --}}}
 
 --{{{ Misc Plugins.
@@ -173,7 +314,12 @@ map('n', '<leader>nf', ':Neoformat<CR>', { noremap = true }) -- format current b
 map('n', '<leader>~', ':Dashboard<CR>', opt) -- map show dashboard
 
 --> Nvim-Colorizer
-map('n', '<Leader>.', ':ColorizerToggle <CR>', { noremap = true })
+map(
+	'n',
+	'<Leader>.',
+	':ColorizerToggle <CR>',
+	{ noremap = true }
+)
 
 --> Terminal commands
 map('n', '<leader><CR>', ':vs | terminal<CR>i', opt)
@@ -183,18 +329,32 @@ map('n', '<leader><CR>', ':vs | terminal<CR>i', opt)
 
 --=>> AUTOCOMPLETIONS <<=
 -------------------------
---{{{ Nvim-Cmp
+--{{{ Nvim-Cmp.
 local cmp = require('cmp')
 M.cmp_mappings = {
 
-	['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
-	['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
+	['<Tab>'] = cmp.mapping(
+		cmp.mapping.select_next_item(),
+		{ 'i', 's' }
+	),
+	['<S-Tab>'] = cmp.mapping(
+		cmp.mapping.select_prev_item(),
+		{ 'i', 's' }
+	),
 
-	['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-	['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+	['<C-n>'] = cmp.mapping.select_next_item({
+		behavior = cmp.SelectBehavior.Insert,
+	}),
+	['<C-p>'] = cmp.mapping.select_prev_item({
+		behavior = cmp.SelectBehavior.Insert,
+	}),
 
-	['<Down>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-	['<Up>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+	['<Down>'] = cmp.mapping.select_next_item({
+		behavior = cmp.SelectBehavior.Select,
+	}),
+	['<Up>'] = cmp.mapping.select_prev_item({
+		behavior = cmp.SelectBehavior.Select,
+	}),
 
 	['<C-d>'] = cmp.mapping.scroll_docs(-4),
 	['<C-f>'] = cmp.mapping.scroll_docs(4),

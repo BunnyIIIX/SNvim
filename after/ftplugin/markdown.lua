@@ -1,3 +1,7 @@
+vim.api.nvim_exec([[
+au filetype vimwiki silent! unmap <buffer> <Tab>
+]])
+
 -- Setup cmp setup buffer configuration - 👻 text off for markdown
 -- local cmp = require('cmp')
 -- cmp.setup.buffer({

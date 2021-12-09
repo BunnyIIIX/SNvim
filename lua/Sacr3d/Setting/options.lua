@@ -35,7 +35,7 @@ opt.undofile = false		-- file undo history preserved outside current session
 opt.splitbelow = true
 opt.splitright = true
 opt.completeopt = 'menuone,noselect,noinsert'
-opt.inccommand = 'split'
+opt.inccommand = 'nosplit'
 
 opt.termguicolors = true
 opt.background = "dark"

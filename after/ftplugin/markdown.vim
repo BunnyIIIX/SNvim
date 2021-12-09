@@ -1,3 +1,6 @@
+" au filetype vimwiki silent! unmap <buffer> <Tab>
+" unmap <buffer> <Tab>
+
 "'=>> Settings
 set linebreak
 set conceallevel=3

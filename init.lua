@@ -28,8 +28,10 @@ scheme.load_lualine_scheme('sacr3d')
 --> Loads plugin configurations
 require('Sacr3d.Goodies')
 --> Handles all lsp server configuration
+-- require('Sacr3d.lsp')
 require('Sacr3d.Lsp')
 --> Loads user contrib files (work in progress)
 -- require('Goodies.modules')
-vim.cmd('source ~/.config/Sacr3dNvim/lua/Sacr3d/Goodies/wiki.vim')
-
+vim.cmd(
+	'source ~/.config/Sacr3dNvim/lua/Sacr3d/Goodies/wiki.vim'
+)
